@@ -141,7 +141,7 @@ android {
         }
         afat {
             ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+                abiFilters "arm64-v8a"
             }
             sourceSets.debug {
                 manifest.srcFile '../TMessagesProj/config/debug/AndroidManifest_SDK23.xml'
@@ -178,7 +178,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 31
         versionName APP_VERSION_NAME
-        ndkVersion "21.4.7075529"
+        ndkVersion "23.2.8568313"
 
         multiDexEnabled true
 
@@ -186,8 +186,8 @@ android {
 
         externalNativeBuild {
             cmake {
-                version '3.10.2'
-                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16', "-j=16"
+                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16'
+                abiFilters 'arm64-v8a'
             }
         }
     }

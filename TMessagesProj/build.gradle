@@ -51,13 +51,14 @@ def isWindows = String.valueOf(DefaultNativePlatform.currentOperatingSystem.toFa
 android {
     compileSdkVersion 33
     buildToolsVersion '33.0.0'
-    ndkVersion "21.4.7075529"
+    ndkVersion "23.2.8568313"
 
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
     externalNativeBuild {
         cmake {
             path 'jni/CMakeLists.txt'
+            version '3.23.1'
         }
     }
 
@@ -91,8 +92,8 @@ android {
 
         externalNativeBuild {
             cmake {
-                version '3.10.2'
-                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16', "-j=16"
+                arguments '-DANDROID_STL=c++_static', '-DANDROID_PLATFORM=android-16'
+                abiFilters 'arm64-v8a'
             }
         }
     }
